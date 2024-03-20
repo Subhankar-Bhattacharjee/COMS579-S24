@@ -32,5 +32,8 @@ TEAM Members:
        paragraph_separator="\n\n\n",
        secondary_chunking_regex="[^,.;。]+[,.;。]?",
        tokenizer=tiktoken.encoding_for_model(self.model_name).encode)```
+- To embed chunks: `index, nodes = indexing.get_index()`
+- To rerank:  `self.rerank = SentenceTransformerRerank(top_n = 5, model = self.model_reranker)`
+- Finally, to generate: `response = Retriever(index, nodes).get_response("What is t5?")`
 
 
