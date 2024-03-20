@@ -13,6 +13,7 @@ TEAM Members:
 ### Installation:
 
 '''pip install -r requirements.txt'''
+`git status`
 
 
 #### Usage:
