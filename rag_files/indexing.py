@@ -22,7 +22,7 @@ class Index:
         cleaned_data = Data_Processing.clean_documents(data)
         
         # Split text into chunks
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=4000, chunk_overlap=0.25)
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=0.25)
         docs = text_splitter.split_documents(cleaned_data)
         print(docs)
     
