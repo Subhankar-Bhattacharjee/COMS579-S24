@@ -22,4 +22,7 @@ TEAM Members:
 - To ask questions to RAG: `python query.py --question="What is the meaning of life?"`
 
 
+## Step By step for execution
+
+
 
