@@ -6,6 +6,7 @@ TEAM Members: Subhankar Bhattacharjee, Koushik Howlader, Md Asif Mahmod Tusher S
 
 
 ### Installation:
+
 pip install -r requirements.txt
 
 
