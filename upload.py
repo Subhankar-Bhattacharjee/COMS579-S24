@@ -12,10 +12,7 @@ def main():
 
     # Index the specified PDF file
     Index.index_pdf(args.pdf_file)
-    # client, vec = Index.index_pdf(args.pdf_file)
-    # response = client.data_object.get(class_name="Document", with_vector=True)
-    # print("Response", response)
-
+    
 if __name__ == "__main__":
     main()
     
