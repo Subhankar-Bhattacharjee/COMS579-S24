@@ -12,7 +12,7 @@ TEAM Members:
 
 ### Installation
 
-'pip install -r requirements.txt'
+`pip install -r requirements.txt`
 
 #### Create a .env file, then:
 
