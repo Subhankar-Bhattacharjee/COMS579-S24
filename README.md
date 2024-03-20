@@ -19,6 +19,7 @@ TEAM Members:
 
 - To upload a PDF: `python upload.py --pdf_file=example.pdf`
 
+- To ask questions to RAG: `python query.py --question="What is the meaning of life?"`
 
 
 
