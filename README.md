@@ -8,10 +8,11 @@ TEAM Members:
 
 ## Video demo link:
 
+---link---
 
 ### Installation:
 
-**pip install -r requirements.txt**
+'''pip install -r requirements.txt'''
 
 
 #### Usage:
