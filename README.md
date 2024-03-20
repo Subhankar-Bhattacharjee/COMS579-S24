@@ -8,7 +8,7 @@ TEAM Members:
 
 ## Video demo link
 
-[Video Demo](www.youtube.com)
+[Video Demo](https://www.youtube.com/)
 
 ### Installation
 
