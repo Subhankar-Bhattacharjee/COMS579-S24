@@ -6,23 +6,30 @@ TEAM Members:
 - Md Asif Mahmod Tusher Siddique
 
 
-## Video demo link:
+## Video demo link
 
 ---link---
 
-### Installation:
+### Installation
 
 `pip install -r requirements.txt`
 
 
-#### Usage:
+### Usage
 
 - To upload a PDF: `python upload.py --pdf_file=example.pdf`
 
 - To ask questions to RAG: `python query.py --question="What is the meaning of life?"`
 
 
-## Step By step for execution
+## Step By Step for execution
 
+- Add PDF to RAG: `is_added = add_pdf_to_folder(pdf_file, folder)`
+- To ingest: `clean_text = TextCleaner(doc.text).clean()`
+- To make chunks: `Settings.text_splitter = SentenceSplitter(
+       separator=" ", chunk_size=200, chunk_overlap=50,
+       paragraph_separator="\n\n\n",
+       secondary_chunking_regex="[^,.;。]+[,.;。]?",
+       tokenizer=tiktoken.encoding_for_model(self.model_name).encode)`
 
 
