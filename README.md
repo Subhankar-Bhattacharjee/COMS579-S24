@@ -12,11 +12,12 @@ TEAM Members:
 
 ### Installation:
 
-'''pip install -r requirements.txt'''
-`git status`
+`pip install -r requirements.txt`
 
 
 #### Usage:
+
+- To upload a PDF: `python upload.py --pdf_file=example.pdf`
 
 
 
