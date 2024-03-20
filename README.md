@@ -27,10 +27,10 @@ TEAM Members:
 - Add PDF to RAG: `is_added = add_pdf_to_folder(pdf_file, folder)`
 - To ingest: `clean_text = TextCleaner(doc.text).clean()`
 - To make chunks:
-  Settings.text_splitter = SentenceSplitter(
+  ```Settings.text_splitter = SentenceSplitter(
        separator=" ", chunk_size=200, chunk_overlap=50,
        paragraph_separator="\n\n\n",
        secondary_chunking_regex="[^,.;。]+[,.;。]?",
-       tokenizer=tiktoken.encoding_for_model(self.model_name).encode)`
+       tokenizer=tiktoken.encoding_for_model(self.model_name).encode)```
 
 
