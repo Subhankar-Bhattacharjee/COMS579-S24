@@ -15,9 +15,9 @@ TEAM Members:
 `pip install -r requirements.txt`
 
 #### Create a .env file, then:
-`OPENAI_API_KEY=openai_api _key`
-`WEAVIATE_URL=weaviate_url`
-`WEAVIATE_API_KEY=weaviate_api_key`
+-`OPENAI_API_KEY=openai_api _key`
+-`WEAVIATE_URL=weaviate_url`
+-`WEAVIATE_API_KEY=weaviate_api_key`
 
 ### Usage
 
