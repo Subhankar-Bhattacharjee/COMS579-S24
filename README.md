@@ -1,14 +1,14 @@
-# COMS579-S24
-RAG - NLP Project for spring 2024 - COMS-579\n
-
-Video demo link:
-
-Installation:
+# RAG - NLP Project for spring 2024 - COMS-579
+TEAM Members: Subhankar Bhattacharjee, Koushik Howlader, Md Asif Mahmod Tusher Siddique
 
 
+## Video demo link:
 
 
-TEAM Members 
-    Subhankar Bhattacharjee\n
-    Koushik Howlader 
-    Md Asif Mahmod Tusher Siddique
+### Installation:
+pip install -r requirements.txt
+
+
+#### Usage:
+
+
