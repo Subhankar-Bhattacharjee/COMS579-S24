@@ -77,5 +77,3 @@ class Index:
             print("Response", response)
         else:
             print("Indexing Failed")
-
-        # return client, vectorstore
