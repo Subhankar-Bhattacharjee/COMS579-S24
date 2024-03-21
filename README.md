@@ -40,5 +40,10 @@ Team Members:
   go to the `rag_files/indexing.py` and find `OpenAIEmbeddings()`
 - Embed text chunk:
   go to the `rag_files/indexing.py` and find `openai.Embedding.create()`
+- Add text and its embedding to Weaviate:
+  go to the `rag_files/indexing.py` and find `client.data_object.create()`
+- Save response from vector database into .json file:
+   go to the `rag_files/indexing.py` and find `client.data_object.get()`
+  
 
 
