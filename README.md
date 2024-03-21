@@ -36,5 +36,7 @@ Team Members:
   go to the `rag_files/indexing.py` and find
   ```text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=25)```
   ```docs = text_splitter.split_documents(cleaned_data)```
+- Initialize OpenAI Embeddings:
+  go to the `rag_files/indexing.py` and find `OpenAIEmbeddings()`
 
 
