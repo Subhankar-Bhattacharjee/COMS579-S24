@@ -10,7 +10,7 @@ TEAM Members:
 
 [Video Demo](https://www.youtube.com/)
 
-### Used component:
+### Technology Used:
 - LangChain
 - Weaviate
 
