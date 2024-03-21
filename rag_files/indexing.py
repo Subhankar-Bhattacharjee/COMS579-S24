@@ -1,6 +1,7 @@
 import os
-from dotenv import load_dotenv,find_dotenv
 import weaviate
+import json
+from dotenv import load_dotenv,find_dotenv
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_community.document_loaders import pdf
@@ -14,6 +15,7 @@ class Index:
     # Function to load and index PDF file
     def index_pdf(pdf_path):
         if(PDFLoader.load_pdf(pdf_path)):
+            print (pdf_path, "Uploaded Successfully!!\n")
             loader = DirectoryLoader('./pdfs', glob="**/*.pdf")
             data = loader.load()
             print("Original Text:\n", data)
@@ -22,10 +24,10 @@ class Index:
         cleaned_data = Data_Processing.clean_documents(data)
         
         # Split text into chunks
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=4000, chunk_overlap=0.25)
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=25)
         docs = text_splitter.split_documents(cleaned_data)
         
-        print("After Filtering text: \n", docs)
+        print("\nAfter Filtering text: \n", docs)
 
         # Connect to Weaviate
         api_key = os.getenv('WEAVIATE_API_KEY')
@@ -72,8 +74,12 @@ class Index:
         texts, meta = list(zip(*text_meta_pair))
         vectorstore.add_texts(texts, meta)
         if(vectorstore.add_texts(texts, meta)):
-            print("Indexing done successfully!!!")
+            print("Indexing done successfully!!!\n")
             response = client.data_object.get(class_name="Document", with_vector=True)
+            with open("index_data.json","w") as f:
+                json.dump(response, f, indent=2)
             print("Response", response)
         else:
             print("Indexing Failed")
+
+        # return client, vectorstore
