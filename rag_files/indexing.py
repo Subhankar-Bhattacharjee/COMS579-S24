@@ -1,85 +1,86 @@
 import os
+import openai
 import weaviate
 import json
-from dotenv import load_dotenv,find_dotenv
+import os
+import openai
+import weaviate
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain_community.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_community.document_loaders import pdf
-from langchain_community.vectorstores import Weaviate
 from rag_files.pdf_load import PDFLoader
 from rag_files.data_preprocess import Data_Processing
-
+from dotenv import load_dotenv,find_dotenv
 load_dotenv(find_dotenv())
 
+# Connect to Weaviate
+weaviate_api_key = os.getenv('WEAVIATE_API_KEY')
+weaviate_url = os.getenv('WEAVIATE_URL')
+openai_api_key = os.getenv('OPENAI_API_KEY')
+# Assuming `openai_api_key` is your OpenAI API key
+openai.api_key = openai_api_key
+
 class Index:
-    # Function to load and index PDF file
+
+    def get_embedding(text):
+        response = openai.Embedding.create(
+            input=text,
+            model="text-embedding-ada-002"  # Choose an appropriate model for your task
+        )
+        embedding = response['data'][0]['embedding']  # Get the embedding vector
+        return embedding
+
     def index_pdf(pdf_path):
         if(PDFLoader.load_pdf(pdf_path)):
             print (pdf_path, "Uploaded Successfully!!\n")
             loader = DirectoryLoader('./pdfs', glob="**/*.pdf")
             data = loader.load()
-            print("Original Text:\n", data)
+            print("\nOriginal text: \n", data)
         
-        #filter text
+        # Clean text
         cleaned_data = Data_Processing.clean_documents(data)
-        
         # Split text into chunks
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=25)
+        text_splitter = RecursiveCharacterTextSplitter(chunk_size=4000, chunk_overlap=0.25)
         docs = text_splitter.split_documents(cleaned_data)
-        
         print("\nAfter Filtering text: \n", docs)
-
+        # Initialize OpenAI Embeddings
+        embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
         # Connect to Weaviate
-        api_key = os.getenv('WEAVIATE_API_KEY')
-        WEAVIATE_URL = os.getenv('WEAVIATE_URL')
-        openai_api_key = os.getenv('OPENAI_API_KEY')
-        auth_config = weaviate.AuthApiKey(api_key=api_key)
-
-        WEAVIATE_URL = os.getenv('WEAVIATE_URL')
-        client = weaviate.Client(
-            url=WEAVIATE_URL,
-            additional_headers={"X-OpenAI-Api-Key": openai_api_key},
-            auth_client_secret=auth_config
-        )
-        #Define input structure and ensure schema is present
+        auth_config = weaviate.AuthApiKey(api_key=weaviate_api_key)
+        client = weaviate.Client(url=weaviate_url, auth_client_secret=auth_config)
+        # Ensure schema is present
         schema = {
             "classes": [
                 {
                     "class": "Document",
-                    "description": "Documents for indexing",
-                    "vectorizer": "text2vec-openai",
-                    "moduleConfig": {"text2vec-openai": {"model": "ada", "type": "text"}},
+                    "description": "A class to store documents",
                     "properties": [
-                        {
-                            "dataType": ["text"],
-                            "description": "The content of the paragraph",
-                            "moduleConfig": {
-                                "text2vec-openai": {
-                                    "skip": False,
-                                    "vectorizePropertyName": False,
-                                }
-                            },
-                            "name": "content",
-                        },
+                        {"name": "content", "dataType": ["text"], "description": "The content of the document"},
                     ],
+                    "vectorIndexType": "hnsw",
+                    "vectorizer": "none",  # We'll provide our own vectors
                 },
             ]
         }
         client.schema.delete_all()
         client.schema.create(schema)
 
-        # Load text into the vector store
-        vectorstore = Weaviate(client, "Document", "content", attributes=["source"])
-        text_meta_pair = [(doc.page_content, doc.metadata) for doc in docs]
-        texts, meta = list(zip(*text_meta_pair))
-        vectorstore.add_texts(texts, meta)
-        if(vectorstore.add_texts(texts, meta)):
-            print("Indexing done successfully!!!\n")
-            response = client.data_object.get(class_name="Document", with_vector=True)
-            with open("index_data.json","w") as f:
-                json.dump(response, f, indent=2)
-            print("Response", response)
-        else:
-            print("Indexing Failed")
-
-        # return client, vectorstore
+        # Process each document chunk
+        for doc in docs:
+            # Embed text chunk
+            response = openai.Embedding.create(input=doc.page_content,model="text-embedding-ada-002")
+            embedding = response['data'][0]['embedding']  # Get the embedding vector
+            # Add text and its embedding to Weaviate
+            client.data_object.create(
+                data_object={"content": doc.page_content},
+                vector=embedding,
+                class_name="Document"
+            )
+        
+        print("Indexed Successfully!!")
+        response = client.data_object.get(class_name="Document", with_vector=True)
+        with open("index_data.json","w") as f:
+            json.dump(response, f, indent=2)
+        print("Response", response)
