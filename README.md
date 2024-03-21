@@ -23,10 +23,21 @@ TEAM Members:
 
 - To upload a PDF: `python upload.py --pdf_file=example.pdf`
 
-
 ## Step By Step for execution
 
-- Add PDF to RAG: `is_added = add_pdf_to_folder(pdf_file, folder)`
+- Add PDF to pdfs directory:
+  ```def load_pdf(file_path):
+        if file_path.lower().endswith(".pdf"):
+            # Remove all existing PDF files in the ./pdfs directory
+            existing_pdfs = glob.glob("./pdfs/*.pdf")
+            for pdf in existing_pdfs:
+                os.remove(pdf)
+
+            # Copy the new PDF file to the ./pdfs directory
+            shutil.copy(file_path, "./pdfs")
+            return True
+        else:
+            return False```
 - To ingest: `clean_text = TextCleaner(doc.text).clean()`
 - To make chunks:
   ```Settings.text_splitter = SentenceSplitter(
