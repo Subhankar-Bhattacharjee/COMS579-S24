@@ -18,7 +18,7 @@ Team Members:
 - Upload a single PDF to `pdfs` directory
 - Text Filtering
 - Split text into chunks
-- Embed text chunk
+- Embed text chunk using `OpenAIEmbeddings()`
 - Add embedding text to Weaviate
 - Save response from vector database into .json file
 
