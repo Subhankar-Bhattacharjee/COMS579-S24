@@ -14,12 +14,12 @@ TEAM Members:
 
 `pip install -r requirements.txt`
 
-#### Create a .env file into root directory, then add your key:
+#### Create a .env file in the root directory, then add your key:
 - `OPENAI_API_KEY=openai_api _key`
 - `WEAVIATE_URL=weaviate_url`
 - `WEAVIATE_API_KEY=weaviate_api_key`
 
-### Usage
+### Command-line Usage
 
 - To upload a PDF: `python upload.py --pdf_file=example.pdf`
 
