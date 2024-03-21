@@ -33,6 +33,7 @@ TEAM Members:
 - Text Filtering:
   Go to `rag_files/data_preprocess.py` and find the `clean_text()` function.
 - Split text into chunks:
+  go to the `rag_files/indexing.py` and find
   ```text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=25)```
   ```docs = text_splitter.split_documents(cleaned_data)```
 
