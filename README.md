@@ -1,5 +1,5 @@
 # RAG - NLP Project for spring 2024 - COMS-579
-TEAM Members: 
+Team Members: 
 
 - Subhankar Bhattacharjee
 - Koushik Howlader
