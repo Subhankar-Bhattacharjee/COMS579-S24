@@ -11,7 +11,7 @@ TEAM Members:
 [Video Demo](https://www.youtube.com/)
 
 ### Used component:
-- Langchain
+- LangChain
 - Weaviate
 
 ### Installation
