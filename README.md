@@ -27,7 +27,7 @@ Team Members:
 
 - To upload a PDF: `python upload.py --pdf_file=example.pdf`
 
-## Step By Step explanation:
+## Step By Step Tasks Done:
 - Add PDF to pdfs directory:
   Go to `rag_files/pdf_load.py` and find the `load_pdf()` function.
 - Text Filtering:
