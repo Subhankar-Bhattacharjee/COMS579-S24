@@ -53,9 +53,8 @@ TEAM Members:
         )
         text = re.sub(pattern, '', text, flags=re.IGNORECASE)
         return text```
-- Split text into chunks: 
-``` text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=25)
-    docs = text_splitter.split_documents(cleaned_data)```
-- To embed chunks: `index, nodes = indexing.get_index()`
+- Split text into chunks:
+  `text_splitter = RecursiveCharacterTextSplitter(chunk_size=200, chunk_overlap=25)`
+  `docs = text_splitter.split_documents(cleaned_data)`
 
 
