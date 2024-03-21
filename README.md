@@ -14,7 +14,15 @@ Team Members:
 - LangChain
 - Weaviate
 
-### Installation
+### Tasks has been done:
+- Upload a single PDF to `pdfs` directory
+- Text Filtering
+- Split text into chunks
+- Embed text chunk
+- Add embedding text to Weaviate
+- Save response from vector database into .json file
+
+### Installation:
 
 `pip install -r requirements.txt`
 
@@ -27,7 +35,7 @@ Team Members:
 
 - To upload a PDF: `python upload.py --pdf_file=example.pdf`
 
-## Step By Step Tasks Done and explanation:
+## Step By Step Tasks Explanation:
 - Add PDF to pdfs directory:
   Go to `rag_files/pdf_load.py` and find the `load_pdf()` function.
 - Text Filtering:
