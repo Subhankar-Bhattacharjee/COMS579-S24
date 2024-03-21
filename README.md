@@ -38,5 +38,7 @@ Team Members:
   ```docs = text_splitter.split_documents(cleaned_data)```
 - Initialize OpenAI Embeddings:
   go to the `rag_files/indexing.py` and find `OpenAIEmbeddings()`
+- Embed text chunk:
+  go to the `rag_files/indexing.py` and find `openai.Embedding.create()`
 
 
