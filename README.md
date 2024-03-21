@@ -8,7 +8,7 @@ Team Members:
 
 ## Video demo link
 
-[Video Demo](https://www.youtube.com/)
+[Video Demo]([https://www.youtube.com/](https://youtu.be/sCZBrKGQPTI?si=z4Xz5aWG-kGNguUM))
 
 ### Technology Used:
 - LangChain
