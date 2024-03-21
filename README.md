@@ -28,7 +28,8 @@ TEAM Members:
 - To upload a PDF: `python upload.py --pdf_file=example.pdf`
 
 ## Step By Step for execution
-
+- Add PDF to pdfs directory:
+  Go to `rag_files/pdf_load.py` and find `load_pdf` function.
 - Add PDF to pdfs directory:
   ```def load_pdf(file_path):
         if file_path.lower().endswith(".pdf"):
