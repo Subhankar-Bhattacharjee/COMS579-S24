@@ -21,6 +21,10 @@ Team Members:
 - Embed text chunk using `OpenAIEmbeddings()`
 - Add embedding text to Weaviate
 - Save response from vector database into .json file
+- Upload multiple PDF , Text Filtering, Indexing
+- query from command line
+- rank list of the documents matches
+- generate an answer based on the top rank documents found
 
 ### Installation:
 
@@ -34,6 +38,7 @@ Team Members:
 ### Command-line Usage
 
 - To upload a PDF: `python upload.py --pdf_file=example.pdf`
+- Answer generation via command line: 'python query.py --question="What is BERT?"'
 
 ## Step By Step Tasks Explanation:
 - Add PDF to pdfs directory:
@@ -52,6 +57,11 @@ Team Members:
   go to the `rag_files/indexing.py` and find `client.data_object.create()`
 - Save response from vector database into .json file:
    go to the `rag_files/indexing.py` and find `client.data_object.get()`
+- run from command prompt: 'python query.py --question="What is BERT?"'
+- index two sample files from directory named 'pdf'
+- index the file by processing `rag_files/indexing.py`
+- rank the documents on query search from `rag_files/results.py`
+- returns the answers based on top rank document
   
 
 
