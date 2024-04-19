@@ -57,7 +57,7 @@ Team Members:
   go to the `rag_files/indexing.py` and find `client.data_object.create()`
 - Save response from vector database into .json file:
    go to the `rag_files/indexing.py` and find `client.data_object.get()`
-- run from command prompt: 'python query.py --question="What is BERT?"'
+- run from command prompt: `python query.py --question="What is BERT?"`
 - index two sample files from directory named 'pdf'
 - index the file by processing `rag_files/indexing.py`
 - rank the documents on query search from `rag_files/results.py`
