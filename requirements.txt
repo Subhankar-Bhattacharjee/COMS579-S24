@@ -55,9 +55,9 @@ jsonpatch==1.33
 jsonpath-python==1.0.6
 jsonpointer==2.4
 kiwisolver==1.4.5
-langchain==0.1.12
-langchain-community==0.0.28
-langchain-core==0.1.32
+langchain==0.1.16
+langchain-community==0.0.33
+langchain-core==0.1.45
 langchain-openai==0.0.8
 langchain-text-splitters==0.0.1
 langdetect==1.0.9
@@ -79,7 +79,7 @@ numpy==1.26.4
 omegaconf==2.3.0
 onnx==1.15.0
 onnxruntime==1.15.1
-openai==1.14.1
+openai==0.28.0
 opencv-python==4.8.0.76
 orjson==3.9.15
 packaging==23.2
@@ -102,6 +102,7 @@ pydantic_core==2.16.3
 pydot==2.0.0
 pyparsing==3.0.9
 pypdf==4.0.1
+PyPDF2==3.0.1
 pypdfium2==4.27.0
 pytesseract==0.3.10
 python-dateutil==2.8.2
@@ -116,6 +117,7 @@ rdflib==7.0.0
 regex==2023.12.25
 requests==2.31.0
 safetensors==0.3.2
+scikit-learn==1.4.2
 scipy==1.10.1
 simplejson==3.19.2
 six==1.16.0
@@ -126,6 +128,7 @@ starlette==0.37.2
 sympy==1.12
 tabulate==0.9.0
 tenacity==8.2.3
+threadpoolctl==3.4.0
 tiktoken==0.6.0
 timm==0.9.12
 tokenizers==0.15.2
