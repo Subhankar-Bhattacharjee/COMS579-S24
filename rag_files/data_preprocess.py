@@ -10,6 +10,8 @@ class Data_Processing:
             r'|\b\d+\b'  # Digits/numbers
             r'|\n\nEmail:'  # The pattern to remove "\n\nEmail:"
             r'|\n\nPage No'  # The pattern to remove "\n\nPage No"
+            r'|Email:'  # The pattern to remove "\n\nEmail:"
+            r'|Page No:'  # The pattern to remove "\n\nPage No"
             r'|\s:\s'  # Colons with spaces around them
             r'|:$'  # Colons at the end of lines
         )
