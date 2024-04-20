@@ -11,7 +11,7 @@ Team Members:
 [Video Demo](https://youtu.be/sCZBrKGQPTI?si=z4Xz5aWG-kGNguUM)
 
 ## Milestone 2:
-[Video Demo](https://youtu.be/sCZBrKGQPTI?si=z4Xz5aWG-kGNguUM)
+[Video Demo](https://youtu.be/DySFGW9kANo)
 
 ### Technology Used:
 - LangChain
