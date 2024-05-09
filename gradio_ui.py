@@ -17,14 +17,14 @@ def indexing_pdf(file_path):
     Index.index_pdf(file_path.name)
     return "File indexed successfully."
 
-css = """
-body { font-family: Arial, sans-serif; }
-input, textarea, button { margin: 10px; }
-button { background-color: #4CAF50; color: white; border: none; padding: 10px 20px; }
-textarea, input[type="file"] { background-color: #f0f0f0; color: #333; border: none; padding: 10px; }
-"""
+# css = """
+# body { font-family: Arial, sans-serif; }
+# input, textarea, button { margin: 10px; }
+# button { background-color: #4CAF50; color: white; border: none; padding: 10px 20px; }
+# textarea, input[type="file"] { background-color: #f0f0f0; color: #333; border: none; padding: 10px; }
+# """
 
-with gr.Blocks(css=css) as demo:
+with gr.Blocks() as demo:
     gr.Markdown("# DocSeek: Interactive Document Explorer")
     #gr.Markdown("![Logo](logo.pngDocSeek.png)")  # Add your logo URL here
     with gr.Row():
