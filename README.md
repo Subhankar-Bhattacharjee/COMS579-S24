@@ -13,7 +13,7 @@ Team Members:
 ## Milestone 2:
 [Video Demo](https://youtu.be/DySFGW9kANo)
 
-## Milestone 2:
+## Milestone 3:
 [Video Demo] https://youtu.be/SF8oIdZY2Zc
 
 ### Technology Used:
