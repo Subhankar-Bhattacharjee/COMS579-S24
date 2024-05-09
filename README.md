@@ -40,6 +40,8 @@ Team Members:
 
 ### Command-line Usage
 
+- To run the app in Gradio UI: `python gradio_ui.py`
+- To view the project in huggingface: https://huggingface.co/spaces/asifsiddique64/docseek
 - To upload a PDF: `python upload.py --pdf_file=example.pdf`
 - Answer generation via command line: `python query.py --question="What is BERT?"`
 
